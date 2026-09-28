@@ -1,4 +1,4 @@
-package com.example.simplemusicplayer
+package com.simplemusicplayer
 
 import android.os.Bundle
 import android.view.Gravity
