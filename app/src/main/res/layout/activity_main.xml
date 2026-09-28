@@ -2,17 +2,86 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="#101114">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="נגן מוזיקה"
-        android:textSize="28sp" />
+    <FrameLayout
+        android:id="@+id/playerArea"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:padding="24dp">
 
-    <Button
-        android:layout_width="wrap_content"
+        <ImageView
+            android:id="@+id/albumArt"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:adjustViewBounds="true"
+            android:scaleType="centerCrop"
+            android:src="@android:drawable/ic_media_play"
+            android:contentDescription="תמונת השיר" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:orientation="vertical"
+            android:paddingTop="16dp"
+            android:background="#B0101114">
+
+            <TextView
+                android:id="@+id/songTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="נגן המוזיקה"
+                android:textColor="#FFFFFF"
+                android:textSize="22sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/songArtist"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="בחר שיר"
+                android:textColor="#BDBDBD"
+                android:textSize="15sp" />
+
+            <SeekBar
+                android:id="@+id/progress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp" />
+        </LinearLayout>
+    </FrameLayout>
+
+    <LinearLayout
+        android:id="@+id/bottomPlayer"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="הפעל" />
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:padding="10dp"
+        android:background="#191A1F">
+
+        <Button
+            android:id="@+id/rewindButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="−10" />
+
+        <ImageButton
+            android:id="@+id/playButton"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:background="@android:color/transparent"
+            android:src="@android:drawable/ic_media_play"
+            android:contentDescription="הפעל או השהה" />
+
+        <Button
+            android:id="@+id/likeButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="♡" />
+    </LinearLayout>
 </LinearLayout>
