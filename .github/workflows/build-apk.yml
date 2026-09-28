@@ -5,29 +5,38 @@ on:
     branches: [ main ]
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+
       - name: Set up JDK
         uses: actions/setup-java@v4
         with:
           distribution: temurin
           java-version: '17'
+
       - name: Set up Android SDK
         uses: android-actions/setup-android@v3
         with:
           packages: platform-tools
+
       - name: Set up Gradle
         uses: gradle/gradle-build-action@v3
         with:
           gradle-version: '8.7'
+
       - name: Build debug APK
         run: gradle assembleDebug --no-daemon
-      - name: Upload APK
-        uses: actions/upload-artifact@v4
+
+      - name: Create Release and upload APK
+        uses: softprops/action-gh-release@v2
         with:
-          name: Simple-Music-Player-debug
-          path: app/build/outputs/apk/debug/app-debug.apk
+          tag_name: v${{ github.run_number }}
+          name: Play Music v${{ github.run_number }}
+          files: app/build/outputs/apk/debug/app-debug.apk
