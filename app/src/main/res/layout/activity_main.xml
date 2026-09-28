@@ -5,6 +5,13 @@
     android:orientation="vertical"
     android:background="#101114">
 
+    <Button
+        android:id="@+id/statsButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="הסטטיסטיקה שלי"
+        android:textSize="16sp" />
+
     <FrameLayout
         android:id="@+id/playerArea"
         android:layout_width="match_parent"
@@ -83,5 +90,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="♡" />
+
+        <Button
+            android:id="@+id/dislikeButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="👎" />
     </LinearLayout>
 </LinearLayout>
